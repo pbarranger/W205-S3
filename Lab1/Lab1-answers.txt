@@ -1,0 +1,21 @@
+Name: Patrick Barranger
+Lab 1
+1/10/17
+
+Q1:
+S3 stands for Simple Storage Service and provides object storage (web interface). EBS stands for Elastic Block Store and provides block storage (file system interface). S3 is scalable while 1 EBS is difficult to scale once configured and can only be associated to one instance at a time. S3 is best for static storage that doesn't require many read/write operations. EBS acts more like a hard drive on your computer.  
+
+Q2: I would consider a cloud infrastructure when I am interested in: 1. Cost efficiency - I would not need to build my own server and only pay for the storage I use. Moreover, I wouldn't need to worry about maintanence of a well service cloud 2. Scalability - My data center can scale with demand which is important if I don't have full control over traffic (aka my ____ goes viral). 3. Backups & Redundancy - the cloud will backup my data and provide redundancy in multiple locations meaning I won't have a single point of failure. 
+
+Q3: Reserved instances are like On-Demand instances in that you are charged an hourly rate. If you are using less than 3 instances you are charged the reserved rate. 3+ you get charged the On-Demand fee. These types of instances give you priority and typically won't interupt steady state usage. 
+
+Spot Instances allow you to bid on leftover AWS inventory. When the On-Demand fee exceeds your bid your instance is deprioritized. While you can get inventory cheaper you also run the risk of being interupted. This is ideal for flexible start and end times, applications that make sense at low prices or when there is urgent need for additional capacity. 
+
+
+Q4: 
+1. pgxl-deployment-tools  
+2.ipython                
+3.start-hadoop.sh           
+4.streamparse
+
+
