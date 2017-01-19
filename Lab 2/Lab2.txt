@@ -1,0 +1,18 @@
+Lab 2
+Submitted by pbarranger
+
+1. 
+
+drwxr-xr-x   - mapred  supergroup          0 2017-01-19 03:41 /user/history
+drwxrwxrwx   - hive    supergroup          0 2017-01-19 03:42 /user/hive
+drwxrwxrwx   - hue     supergroup          0 2017-01-19 03:43 /user/hue
+drwxrwxrwx   - jenkins supergroup          0 2017-01-19 03:42 /user/jenkins
+drwxrwxrwx   - oozie   supergroup          0 2017-01-19 03:43 /user/oozie
+drwxrwxrwx   - root    supergroup          0 2017-01-19 03:42 /user/root
+drwxr-xr-x   - hdfs    supergroup          0 2017-01-19 03:45 /user/spark
+drwxr-xr-x   - w205    supergroup          0 2017-01-19 03:46 /user/w205
+
+2.
+Q1 - Live datanodes (1)
+Q2 - Non DFS Used: 5474114876 (5.10 GB)
+Q3 - DFS Used: 143508164 (136.86 MB)
