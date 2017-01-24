@@ -1,0 +1,124 @@
+Lab 5 (week 3) 
+By: pbarranger
+
+1.
+  List of relations
+ Schema |       Name       | Type  |  Owner   
+--------+------------------+-------+----------
+ public | actor            | table | postgres
+ public | address          | table | postgres
+ public | category         | table | postgres
+ public | city             | table | postgres
+ public | country          | table | postgres
+ public | customer         | table | postgres
+ public | film             | table | postgres
+ public | film_actor       | table | postgres
+ public | film_category    | table | postgres
+ public | inventory        | table | postgres
+ public | language         | table | postgres
+ public | payment          | table | postgres
+ public | payment_p2007_01 | table | postgres
+ public | payment_p2007_02 | table | postgres
+ public | payment_p2007_03 | table | postgres
+ public | payment_p2007_04 | table | postgres
+ public | payment_p2007_05 | table | postgres
+ public | payment_p2007_06 | table | postgres
+ public | rental           | table | postgres
+ public | staff            | table | postgres
+
+
+2. Schema: customer_id , store_id, first_name, last_name, email, address_id, activebool , create_date, last_update , active 
+
+Output: 
+ Table "public.customer"
+   Column    |            Type             |                           Modifiers
+                            
+-------------+-----------------------------+------------------------------------
+----------------------------
+ customer_id | integer                     | not null default nextval('customer_
+customer_id_seq'::regclass)
+ store_id    | smallint                    | not null
+ first_name  | character varying(45)       | not null
+ last_name   | character varying(45)       | not null
+ email       | character varying(50)       | 
+ address_id  | smallint                    | not null
+ activebool  | boolean                     | not null default true
+ create_date | date                        | not null default ('now'::text)::dat
+e
+ last_update | timestamp without time zone | default now()
+ active      | integer                     | 
+
+3. They start by sequencing from the FROM statement and then apply filters if called. 
+
+4. Union uses a Hash Aggregate twice while the partition only does it once. I believe this happens because the FROM statement in the Union requires an imbedded FROM statement, hence the double hash aggregate. The partition has a single FROM call. 
+
+Output: 
+
+dvdrental=# EXPLAIN SELECT u.customer_id,
+dvdrental-#        sum(u.amount)
+dvdrental-# FROM
+dvdrental-#   ( SELECT *
+dvdrental(#    FROM payment_p2007_01
+dvdrental(#    UNION SELECT *
+dvdrental(#    FROM payment_p2007_02) u
+dvdrental-# WHERE u.payment_date <= '2007-02-01 00:00:00'::TIMESTAMP WITHOUT time ZONE
+dvdrental-# GROUP BY u.customer_id ;
+                                            QUERY PLAN                                         
+   
+-----------------------------------------------------------------------------------------------
+---
+ HashAggregate  (cost=127.26..129.76 rows=200 width=13)
+   ->  HashAggregate  (cost=98.31..109.89 rows=1158 width=28)
+         ->  Append  (cost=0.00..80.94 rows=1158 width=28)
+               ->  Seq Scan on payment_p2007_01  (cost=0.00..23.46 rows=1157 width=28)
+                     Filter: (payment_date <= '2007-02-01 00:00:00'::timestamp without time zon
+e)
+               ->  Seq Scan on payment_p2007_02  (cost=0.00..45.90 rows=1 width=28)
+                     Filter: (payment_date <= '2007-02-01 00:00:00'::timestamp without time zon
+e)
+(7 rows)
+
+dvdrental=# EXPLAIN SELECT customer_id,
+dvdrental-# sum(amount)
+dvdrental-# FROM payment
+dvdrental-# WHERE payment_date <= '2007-02-01 00:00:00'::TIMESTAMP WITHOUT time ZONE
+dvdrental-# GROUP BY customer_id ;
+                                         QUERY PLAN                                         
+--------------------------------------------------------------------------------------------
+ HashAggregate  (cost=103.99..106.49 rows=200 width=11)
+   ->  Append  (cost=0.00..95.99 rows=1601 width=11)
+         ->  Seq Scan on payment  (cost=0.00..26.62 rows=443 width=13)
+               Filter: (payment_date <= '2007-02-01 00:00:00'::timestamp without time zone)
+         ->  Seq Scan on payment_p2007_01 payment  (cost=0.00..23.46 rows=1157 width=10)
+               Filter: (payment_date <= '2007-02-01 00:00:00'::timestamp without time zone)
+         ->  Seq Scan on payment_p2007_02 payment  (cost=0.00..45.90 rows=1 width=10)
+               Filter: (payment_date <= '2007-02-01 00:00:00'::timestamp without time zone)
+(8 rows)
+
+
+5. Hash join with the conditional that public.payment.customer_id = customer.customer_id
+
+Output:
+dvdrental=# EXPLAIN SELECT customer.customer_id,
+dvdrental-#        first_name,
+dvdrental-#        last_name,
+dvdrental-#        email,
+dvdrental-#        amount,
+dvdrental-#        payment_date
+dvdrental-# FROM customer
+dvdrental-# INNER JOIN payment ON payment.customer_id = customer.customer_id;
+                                        QUERY PLAN                                        
+------------------------------------------------------------------------------------------
+ Hash Join  (cost=22.48..606.82 rows=18709 width=65)
+   Hash Cond: (public.payment.customer_id = customer.customer_id)
+   ->  Append  (cost=0.00..327.09 rows=18709 width=18)
+         ->  Seq Scan on payment  (cost=0.00..23.30 rows=1330 width=21)
+         ->  Seq Scan on payment_p2007_01 payment  (cost=0.00..20.57 rows=1157 width=18)
+         ->  Seq Scan on payment_p2007_02 payment  (cost=0.00..40.12 rows=2312 width=18)
+         ->  Seq Scan on payment_p2007_03 payment  (cost=0.00..98.44 rows=5644 width=18)
+         ->  Seq Scan on payment_p2007_04 payment  (cost=0.00..117.54 rows=6754 width=18)
+         ->  Seq Scan on payment_p2007_05 payment  (cost=0.00..3.82 rows=182 width=17)
+         ->  Seq Scan on payment_p2007_06 payment  (cost=0.00..23.30 rows=1330 width=21)
+   ->  Hash  (cost=14.99..14.99 rows=599 width=49)
+         ->  Seq Scan on customer  (cost=0.00..14.99 rows=599 width=49)
+(12 rows)
