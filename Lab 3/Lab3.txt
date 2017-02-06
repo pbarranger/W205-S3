@@ -1,0 +1,20 @@
+pbarranger Lab 3 Submit
+
+1. 
+36.721 - Hive
+28.873 - SparkSQL
+8.813 - SparkSQL on Parquet
+
+2. 
+2 jobs - Hive
+No jobs were required for the SparkSQL queries I ran.
+
+3. 
+Top 5:
+La Fayette
+Leeds
+Blountsville
+Hamilton 
+Hayden
+
+
