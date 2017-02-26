@@ -22,8 +22,7 @@ FROM hvbp_tps;
 
 DROP TABLE measure_scores; 
 
-CREATE TABLE measure_score AS 
-
+CREATE TABLE measure_scores AS 
 SELECT provider_id as id, 
 hospital_name AS hospital, 
 state, 
