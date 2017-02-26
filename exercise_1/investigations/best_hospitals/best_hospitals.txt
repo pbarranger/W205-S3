@@ -1,0 +1,43 @@
+Q: What hospitals are models of high-quality care? That is, which hospitals have the most consistently high scores for a variety of procedures.
+
+A: The purpose of my analysis is to study the quality of care for Medicare patients. Looking at the hospitals in the database there are hospitals with and without emergency services. 
+Additionally there are four hospital types:
+
+hospital_type
+Childrens                                                                       
+Acute Care Hospitals
+ACUTE CARE - VETERANS ADMINISTRATION
+Critical Access Hospitals
+
+Since Medicare patients are at least 65 years old or are on disability, I removed “Childrens” hospitals. 
+I also removed “Veterans” hospitals because they only serve a portion of the Medicare patients and I want to have results  that can be applied to the largest population. 
+Finally I removed “Critical Access Hospitals” (extremely small rural hospitals with 25 or fewer beds) because of the small portion of Medicare patients covered. 
+
+Initial exploratory analysis uncovered that all hospitals in the database did not provide the same services. Specifically, rehabilitation and specialist centers were included. 
+While they typically scored high I removed them from my analysis because they are not designed to handle all the needs of the existing Medicare population. 
+For this reason I also excluded hospitals that did not offer emergency services. After data cleansing I was left with hospitals that were equipped to handle all the needs of a Medicare patient: acute care hospitals with emergency services.
+
+“Quality of care” is a multi-faceted metric. Fortunately the  Centers for Medicare & Medicaid Services (CMS) have developed an initiative called the Hospital Value-Based Purchasing (HVBP) Program. 
+Its primary goal is to reward acute-care hospitals with incentive payments for the quality of care they provide to Medicare beneficiaries.
+Quality of care is assessed via the Total Performance Score (TPS) which is comprised of the Clinical Process of Care domain score (weighted as 20% of the TPS), 
+the Patient Experience of Care domain score (weighted as 30% of the TPS), the Outcome domain score (weighted as 30% of the TPS), and the Efficiency domain score (weighted as 20% of the TPS). 
+CMS believes these four factors best represent quality of care and thus I too will use TPS as principal metric of study.
+
+Below are the top 10 quality of care hospitals, evaluated by their overall TPS, for Acute Care Hospitals offering emergency services:
+
+id	hospital					state	quality_of_care_score
+260227  BLACK RIVER COMMUNITY MEDICAL CENTER    	MO      92.8                    
+450834	PHYSICIANS CENTRE,THE				TX	90.47619
+030120	GILBERT HOSPITAL				AZ	86.8
+460039	BEAR RIVER VALLEY HOSPITAL			UT	85.0
+050234	SHARP CORONADO HOSPITAL AND HLTHCR CTR		CA	84.5873
+370210	OKLAHOMA SURGICAL HOSPITAL, LLC			OK	84.42857
+240141	FAIRVIEW NORTHLAND REGIONAL HOSPITAL		MN	84.30159
+440032	WELLMONT HAWKINS COUNTY MEMORIAL HOSPITAL	TN	83.6
+170109	MIAMI COUNTY MEDICAL CENTER			KS	82.82539
+010045	FAYETTE MEDICAL CENTER				AL	82.8
+
+
+
+While other hospitals in the total dataset have higher scores, they do not offer all services and thusl they should not be in the same analysis group. 
+Future studies could be done to identify high quality specialized or rehabilitation hospitals for Medicare patients seeking unique and predefined procedures. 
