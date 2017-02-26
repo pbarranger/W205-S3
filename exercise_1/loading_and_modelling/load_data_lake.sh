@@ -19,9 +19,9 @@ mkdir /home/w205/hospital_compare/hvbp_tps
 mkdir /home/w205/junk/ 
 cd /home/w205/junk/
 
-wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+wget -O medicare_data.zip "https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip"
 
-unzip Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s\?content_type\=application%2Fzip\;\ charset\=binary 
+unzip medicare_data.zip
 
 tail -n +2 /home/w205/junk/Hospital\ General\ Information.csv > /home/w205/hospital_compare/hospitals/hospitals.csv
 tail -n +2 /home/w205/junk/Timely\ and\ Effective\ Care\ -\ Hospital.csv  > /home/w205/hospital_compare/effective_care/effective_care.csv
