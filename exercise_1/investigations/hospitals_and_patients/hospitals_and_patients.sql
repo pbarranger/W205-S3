@@ -6,8 +6,8 @@ a.id,
 a.hospital, 
 CASE WHEN  a.comp = 'Better than the National Rate' THEN 1 ELSE 0 END as better_than_score, 
 CASE WHEN a.comp = 'Worse than the National Rate' THEN 1 ELSE 0 END AS worse_than_score 
-FROM death a
-JOIN hospital b ON (a.id=b.provider_id) 
+FROM readmission_stats a
+JOIN hospital_lookup b ON (a.id=b.provider_id) 
 WHERE 
 emergency_services = 'Yes' 
 AND hospital_type = 'Acute Care Hospitals';

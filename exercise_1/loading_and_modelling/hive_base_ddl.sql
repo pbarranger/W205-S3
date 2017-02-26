@@ -1,4 +1,4 @@
---can i comment?
+--create my hospital table
 DROP TABLE hospital;
 CREATE EXTERNAL TABLE hospital (
 Provider_ID INT,
@@ -23,7 +23,7 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/hospital';
 
 
-
+--create survey table as required in directions
 DROP TABLE surveys;
 CREATE EXTERNAL TABLE surveys (
 Provider_Number INT,
@@ -69,6 +69,7 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/survey_responses';
 
+--effective care table
 DROP TABLE effective_care;
 CREATE EXTERNAL TABLE effective_care (
 Provider_ID INT,
@@ -97,6 +98,7 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/effective_care';
 
+--table of measure definitions
 DROP TABLE measures;
 CREATE EXTERNAL TABLE measures (
 Measure_Name STRING,
@@ -115,6 +117,7 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/measures';
 
+-- readmission table
 DROP TABLE readmission;
 CREATE EXTERNAL TABLE readmission (
 Provider_ID INT,
@@ -145,7 +148,7 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/readmission';
 
-
+--table for overall hospital scores
 DROP TABLE hvbp_tps;
 CREATE EXTERNAL TABLE hvbp_tps(
 Provider_Number INT,
@@ -155,7 +158,7 @@ City STRING,
 State STRING,
 Zip_Code INT,
 County_Name STRING,
-Unweighted_Normalized_Clinical_Process_of_CarevDomain_Score FLOAT,
+Unweighted_Normalized_Clinical_Process_of_Care_Domain_Score FLOAT,
 Weighted_Clinical_Process_of_Care_Domain_Score FLOAT,
 Unweighted_Patient_Experience_of_Care_Domain_Score FLOAT,
 Weighted_Patient_Experience_of_Care_Domain_Score FLOAT,

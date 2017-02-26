@@ -9,13 +9,13 @@ rm -R /home/w205/hospital_compare/
 
 hdfs dfs -rm -R /user/w205/hospital_compare/
 
-cd /home/w205/hospital_compare/hospitals
-cd /home/w205/hospital_compare/effective_care
-cd /home/w205/hospital_compare/readmissions
-cd /home/w205/hospital_compare/measures
-cd /home/w205/hospital_compare/survey_responses
-cd /home/w205/hospital_compare/hvbp_tps
-cd /home/w205/junk/ 
+mkdir /home/w205/hospital_compare/hospitals
+mkdir /home/w205/hospital_compare/effective_care
+mkdir /home/w205/hospital_compare/readmissions
+mkdir /home/w205/hospital_compare/measures
+mkdir /home/w205/hospital_compare/survey_responses
+mkdir /home/w205/hospital_compare/hvbp_tps
+mkdir /home/w205/junk/ 
 
 wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
 unzip Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s\?content_type\=application%2Fzip\;\ charset\=binary 
