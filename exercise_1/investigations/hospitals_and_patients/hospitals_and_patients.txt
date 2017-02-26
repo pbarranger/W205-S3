@@ -1,0 +1,45 @@
+Q: Are average scores for hospital quality or procedural variability correlated with patient survey responses?
+
+A: Since I based the measure of hospital quality on TPS I cannot check for correlation since I know each measure is not independent. 
+(Patient surveys are used to generate the patient experience score that is 30% of the final TPS score). 
+That said I can see if the procedural outcome (measured in the previous section) has any correlation with the final patient score. 
+
+In the readmission and death table, hospitals are graded as being either better, the same, or worse than the national average across each of the eight major procedure areas. 
+Knowing this, we can group hospital into sets based on their performance and see if there is any correlation with the final patient score received. 
+
+*Note: I had difficulty getting my GROUP BY statements to work on my CASE statements. As a result I ended up materializing tables sequentially to get to my final query. 
+
+First, I materialized a table to count the number of scores it received above the national average (max 8) and the number of score it received below the national average (max 8). 
+Based on this table, next, I materialized a table subtracting the ‘number of scores above’ minus ‘number of scores below’, effectively grouping all my hospitals in scores from -8 (all below average) 
+to 8 (all above average). Checking the number of hospitals in each grouping we note that we have a sufficient sample in the groupings from -3 to 4. 
+
+-7      1                                                                       
+-5	3
+-4	16
+-3	62
+-2	133
+-1	491
+0	3647
+1	269
+2	106
+3	30
+4	20
+5	3
+6	3
+8	1
+
+
+Finally I averaged the patient scores for each hospital in each performance point category to see if there was any noticeable correlation. 
+
+-3	33.14754098360656
+-2	32.61290322580645
+-1	34.80235294117647
+0	44.69034517258629
+1	40.13725490196079
+2	40.633663366336634
+3	39.86666666666667
+4	47.85
+
+It can be noted that hospitals with more rating below average than above average (-3 - -1)score below all hospitals scoring even or better (0 - 4). 
+These below average hospitals tend to score around 10 points worse on patient scoring. These results indicate that this should be an area of additional research. 
+Additional more rigorous statistical testing could validate the strength of this correlation and better visualization tools could convey the findings more clearly.  

@@ -1,0 +1,27 @@
+Q: What states are models of high-quality care?
+
+A: For the state level analysis I carried over the assumptions from the hospital analysis (looking exclusively at acute care hospitals offering emergency services & using TPS as the measure of quality care). 
+My initial investigation looked at ranking states by average TPS score but frequently the top 10 state’s best hospital was lower than the best hospital in other states. 
+While having consistently high scoring hospitals is a great achievement, it did not seem appropriate to call the state a “model” state when it didn’t have a top 10 hospital. 
+Ultimately I defined a “model state” as a state that enables a hospital to achieve the highest possible score. 
+Given that complex procedures are typically performed by high performing hospitals it is safe to assume that Medicare patients could travel in-state for receiving critical care, 
+thus making the highest scoring hospital a good metric of analysis for states.  Below are the top 10 states that are models of high-quality care, ranked by the top TPS score within each state:
+
+state	highest_quality_of_care		avg_quality_of_care	range_of_quality_of_care
+MO      92.8    			44.16964224222544       73.5                                    
+TX	90.47619			41.798281508885076	70.309525
+AZ	86.8				38.49964531262716	65.44546
+UT	85.0				43.74750580106463	59.785713
+CA	84.5873				39.16481364759287	74.84286
+OK	84.42857			45.84810958275428	63.060394
+MN	84.30159			51.72486788431804	52.70159
+TN	83.6				39.71264291944958	67.6
+KS	82.82539			42.72153864408794	59.116302
+AL	82.8				44.30938097635905	61.218185
+
+With a top possible score of 100, these states host hospitals with extremely high scores. 
+Additional columns were included to show the average TPS score in the state as well as the range of scores between the highest and lowest performing hospital. 
+Given that average TPS scores are typically half or less than the max TPS score in-state, it shows the importance of being near the high scoring hospital in the state. 
+MN, ranking 7th on my list but highest in average score and lowest on range, seems to have done the best distributing best practices across its hospitals. 
+That said, I cannot in good faith rank MN number one overall because there are hospitals achieving scores over 8 points higher. 
+
