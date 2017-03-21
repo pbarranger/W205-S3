@@ -1,0 +1,28 @@
+Lab 8
+By pbarranger
+
+1. Missing in "State": 5640
+Territories and DC included but the below did not have a logical pair. 
+
+AA 10
+AE 143
+AP 110
+(blank) 5377
+
+2. Zip codes missing: 4362
+
+That said, I have 39306 rows with less than 5 digits indicating a potential missing/incorrect value.
+
+3. Zip codes missing: 34944
+
+4. Changing to 3 gave me poor quality pairs (Indonesia and Micronesia, Tajikistan and Pakistan). I would stick with 3.  
+
+5. California and Alaska 
+
+6. My instance had difficulty doing the computation. 
+The tool could have a pop-up telling you the number of unique strings and the relative time to perform the calculation as a warning. 
+
+7.
+
+>>> distance("gumbarrel", "gunbarrell")
+2
