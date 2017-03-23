@@ -1,0 +1,133 @@
+Lab 9
+By pbarranger
+
+1. Path length of 1. (They appeared together)
+2. 
+
++------------------------------------------+
+¦"p"                           ¦"length(p)"¦
+¦------------------------------+-----------¦
+¦[{"name":"DR. STRANGE/STEPHEN"¦"1"        ¦
+¦,"degree":"777"},{"w":"12"},{"¦           ¦
+¦name":"DR. DOOM/VICTOR VON","d¦           ¦
+¦egree":"441"}]                ¦           ¦
++------------------------------+-----------¦
+¦[{"name":"DR. STRANGE/STEPHEN"¦"1"        ¦
+¦,"degree":"777"},{"w":"8"},{"n¦           ¦
+¦ame":"DR. DOOM/VICTOR VON","de¦           ¦
+¦gree":"441"}]                 ¦           ¦
++------------------------------+-----------¦
+¦[{"name":"DR. STRANGE/STEPHEN"¦"2"        ¦
+¦,"degree":"777"},{"w":"3"},{"n¦           ¦
+¦ame":"BALDER [ASGARDIAN]","deg¦           ¦
+¦ree":"224"},{"name":"BALDER [A¦           ¦
+¦SGARDIAN]","degree":"224"},{"w¦           ¦
+¦":"2"},{"name":"DR. DOOM/VICTO¦           ¦
+¦R VON","degree":"441"}]       ¦           ¦
++------------------------------+-----------¦
+¦[{"name":"DR. STRANGE/STEPHEN"¦"2"        ¦
+¦,"degree":"777"},{"w":"42"},{"¦           ¦
+¦name":"SILVER SURFER/NORRIN","¦           ¦
+¦degree":"466"},{"name":"SILVER¦           ¦
+¦ SURFER/NORRIN","degree":"466"¦           ¦
+¦},{"w":"10"},{"name":"DR. DOOM¦           ¦
+¦/VICTOR VON","degree":"441"}] ¦           ¦
++------------------------------+-----------¦
+¦[{"name":"DR. STRANGE/STEPHEN"¦"2"        ¦
+¦,"degree":"777"},{"w":"28"},{"¦           ¦
+¦name":"SILVER SURFER/NORRIN","¦           ¦
+¦degree":"466"},{"name":"SILVER¦           ¦
+¦ SURFER/NORRIN","degree":"466"¦           ¦
+¦},{"w":"10"},{"name":"DR. DOOM¦           ¦
+¦/VICTOR VON","degree":"441"}] ¦           ¦
++------------------------------------------+
+3.
++----------------------------------+
+¦"friend_of_friend.name"¦"COUNT(*)"¦
+¦-----------------------+----------¦
+¦"WONG"                 ¦"453"     ¦
++-----------------------+----------¦
+¦"MOONSTONE II/KARLA S" ¦"370"     ¦
++-----------------------+----------¦
+¦"CARTER, PEGGY"        ¦"367"     ¦
++-----------------------+----------¦
+¦"POWER MAN/ERIK JOSTE" ¦"350"     ¦
++-----------------------+----------¦
+¦"KINGPIN/WILSON FISK"  ¦"342"     ¦
++----------------------------------+
+
+4. see Lab9_4 image in the folder
++------------------------------+
+¦"friend_of_friend"            ¦
+¦------------------------------¦
+¦{"name":"BARTOS","degree":"16"¦
+¦}                             ¦
++------------------------------¦
+¦{"name":"MIMIC/CALVIN RANKIN",¦
+¦"degree":"89"}                ¦
++------------------------------¦
+¦{"name":"MANAT","degree":"17"}¦
++------------------------------¦
+¦{"name":"SINTARIIS","degree":"¦
+¦5"}                           ¦
++------------------------------¦
+¦{"name":"DIBDEB","degree":"15"¦
+¦}                             ¦
++------------------------------¦
+¦{"name":"RASPUTIN, MIKHAIL","d¦
+¦egree":"54"}                  ¦
++------------------------------¦
+¦{"name":"WIBBOW","degree":"20"¦
+¦}                             ¦
++------------------------------¦
+¦{"name":"P'KAR","degree":"14"}¦
++------------------------------¦
+¦{"name":"LIVING MONOLITH/AHME"¦
+¦,"degree":"61"}               ¦
++------------------------------¦
+¦{"name":"ALBERIK","degree":"8"¦
+¦}                             ¦
++------------------------------+
+5.
+Original 5 (per tool):
+ANT-MAN/DR. HENRY J.
+WASP/JANET VAN DYNE
+SCARLET WITCH/WANDA
+CAPTAIN AMERICA
+VISION
+
+#6 WONDER MAN/SIMON WIL
+
+#7 HAWK
+
+#8 IRON MAN IV/JAMES R. (War Machine)
+
+#9 JARVIS, EDWIN
+
+#10 MR. FANTASTIC/REED R
+
+5.1. I pulled the list again but used Hulk and Iron Man instead. I found it interesting that Hulk (one of the
+original members of the Avengers) didn't appear in the original list. 
+
+CAPTAIN AMERICA
+SCARLET WITCH/WANDA
+THOR/DR. DONALD BLAK
+VISION
+WASP/JANET VAN DYNE
+
+ANT-MAN/DR. HENRY J.
+
+WONDER MAN/SIMON WIL
+
+HAWK
+
+IRON MAN IV/JAMES R.
+
+JARVIS, EDWI
+
+
+
+
+
+
+
