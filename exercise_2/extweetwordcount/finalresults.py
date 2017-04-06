@@ -1,23 +1,21 @@
 import sys
 import psycopg2
 
-# Connect to twitter word count database
-conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
-cur = conn.cursor()
+connector = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
+cur = connector.cursor()
 
-if (len(sys.argv)) > 1:  # With argument
+if (len(sys.argv)) > 1:
     word = sys.argv[1]
     cur.execute("SELECT word,count FROM tweetwordcount WHERE word=%s", [word])
     records = cur.fetchall()
-    for rec in records:
-        print("Total number of occurences of %s : %s  " % (rec[0], rec[1]))
-    conn.commit()
-else:  # Without argument
-    # Return all words sorted alphabetically in an ascending order
+    for i in records:
+        print("Total number of occurences of \"%s\" : %s  " % (i[0], i[1]))
+    connector.commit()
+else:  
     cur.execute("SELECT word, count FROM tweetwordcount ORDER BY word")
     records = cur.fetchall()
-    for rec in records:
-        print("<%s> %s" % (rec[0], rec[1]))
-    conn.commit()
+    for i in records:
+        print("<%s> %s" % (i[0], i[1]))
+    connector.commit()
 
-conn.close()
+connector.close()
