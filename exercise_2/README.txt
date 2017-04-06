@@ -1,4 +1,4 @@
-Exercise 2 for pbarranger
+Exercise 2 by pbarranger
 
 How to run this application
 
