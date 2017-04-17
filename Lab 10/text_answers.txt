@@ -1,0 +1,15 @@
+Text Answers for lab 10: 
+
+3. I would sepereate the storage of the information from the processing of the information. If the processing gets backed up, 
+the data is still stored so that it can be processed at a later date. 
+
+With a store then process model, if the processing was updated it could start working immediately on the existing unprocessed 
+data store and then could be rerun over the stored data that had already been processed (time allowing) so that the entire record
+is processed by the updated process. Depending on how far back the updated process wants to be applied it could be expensive to 
+store and process all the previously processed data. This would need to be balanced based on business needs and cost efficacy. 
+
+4b. 10 sec batches with a 30 sec sliding window vs a 30 second batch length:
+
+  10 sec batch w/ 30s window: Get the count for the last 3 batches every 10 sec. 
+
+  30 second batch: count for last batch 
